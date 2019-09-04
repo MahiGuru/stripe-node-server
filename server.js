@@ -26,4 +26,13 @@ app.post("/charge", async (req, res) => {
     }
   });
 
+
+  app.get("/balance", async (req, res) => {
+    const result = await stripe.balance.retrieve(); 
+    res.send({result});
+    
+  });
+
+
+
   app.listen(9000, () => console.log("Listening on port 9000")); 
